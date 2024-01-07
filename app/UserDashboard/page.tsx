@@ -11,13 +11,13 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
-
+type ViewType = typeof Views[keyof typeof Views];
 
 const Page = () => {
 
   const [events] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [defaultView, setDefaultView] = useState(Views.MONTH);
+  const [defaultView, setDefaultView] = useState<ViewType>(Views.MONTH);
   const switchToWeekView = () => {
     setDefaultView(Views.WEEK);
   };
